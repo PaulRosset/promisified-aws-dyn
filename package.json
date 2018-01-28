@@ -1,0 +1,28 @@
+{
+  "name": "promisified-aws-dyn",
+  "version": "1.0.0",
+  "description": "Abstract class promisified for AWS dynamodb SDK ",
+  "main": "",
+  "repository": "git@github.com:PaulRosset/promisified-aws-dyn.git",
+  "author": "<paulrosset96@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./lib/crudProcessing.js",
+    "flow:build":
+      "./node_modules/.bin/flow-remove-types ./src/ -d ./lib/ --all --pretty",
+    "test": "./node_modules/.bin/jest"
+  },
+  "jest": {
+    "transformIgnorePatterns": ["/node_modules/", "/src/"]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.188.0",
+    "flow": "^0.2.3",
+    "flow-remove-types": "^1.2.3"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.64.0",
+    "jest": "^22.1.4",
+    "nodemon": "^1.14.11"
+  }
+}
