@@ -22,11 +22,46 @@ class AWSUtils {
     );
   }
 
+  getTable(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.dyn.listTables(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
   // delete a table
   deleteTable(params: Object): Promise<Object> {
     return new Promise(
       (resolve: (data: Object) => void, reject: (err: Object) => void) => {
         this.dyn.deleteTable(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  // get an Item in the table
+  getItem(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.dyn.getItem(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  // Create an Item in the table
+  putItem(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.dyn.putItem(params, (err: Object, data: Object) => {
           if (err) return reject(err);
           return resolve(data);
         });
