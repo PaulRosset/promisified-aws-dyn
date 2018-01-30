@@ -20,7 +20,7 @@ DynamoDB will be launch on `localhost:8000`.
 
 ```
 const AWSUtils = require("promisified-aws-dyn");
-dyn = new AWSUtils({
+const dyn = new AWSUtils({
     endpoint: new AWS.Endpoint("http://localhost:8000"),
     accessKeyId: ACCESSKEYID,
     secretAccessKey: KEYSECRETAWS,

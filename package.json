@@ -1,6 +1,6 @@
 {
   "name": "promisified-aws-dyn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Abstract class promisified for AWS dynamodb SDK ",
   "main": "./lib/Processing.js",
   "repository": "git@github.com:PaulRosset/promisified-aws-dyn.git",
