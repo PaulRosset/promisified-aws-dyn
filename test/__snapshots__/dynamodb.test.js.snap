@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add entry in Base Select item previously added 1`] = `
+Object {
+  "Item": Object {
+    "Artist": Object {
+      "S": "John Doe",
+    },
+    "SongTitle": Object {
+      "S": "Hello World",
+    },
+  },
+}
+`;
+
+exports[`Add entry in Base Update item previously added 1`] = `
+Object {
+  "Item": Object {
+    "Artist": Object {
+      "S": "John Doe",
+    },
+    "SongTitle": Object {
+      "S": "Hello World",
+    },
+    "Year": Object {
+      "S": "2089",
+    },
+  },
+}
+`;

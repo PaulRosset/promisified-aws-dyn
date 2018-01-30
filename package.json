@@ -8,12 +8,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon ./lib/crudProcessing.js",
-    "flow:build":
-      "./node_modules/.bin/flow-remove-types ./src/ -d ./lib/ --all --pretty",
+    "flow:build": "./node_modules/.bin/flow-remove-types ./src/ -d ./lib/ --all --pretty",
     "test": "./node_modules/.bin/jest"
   },
   "jest": {
-    "transformIgnorePatterns": ["/node_modules/", "/src/"]
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "/src/"
+    ]
   },
   "dependencies": {
     "aws-sdk": "^2.188.0",
