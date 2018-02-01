@@ -81,10 +81,23 @@ class AWSUtils {
     );
   }
 
+  // updateItem
   updateItem(params: Object): Promise<Object> {
     return new Promise(
       (resolve: (data: Object) => void, reject: (err: Object) => void) => {
         this.dyn.updateItem(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  //Query items
+  query(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.dyn.query(params, (err: Object, data: Object) => {
           if (err) return reject(err);
           return resolve(data);
         });

@@ -13,6 +13,20 @@ Object {
 }
 `;
 
+exports[`Add entry in Base Testing result returned form the methode query() 1`] = `
+Object {
+  "Count": 1,
+  "Items": Array [
+    Object {
+      "SongTitle": Object {
+        "S": "Hello World",
+      },
+    },
+  ],
+  "ScannedCount": 1,
+}
+`;
+
 exports[`Add entry in Base Update item previously added 1`] = `
 Object {
   "Item": Object {

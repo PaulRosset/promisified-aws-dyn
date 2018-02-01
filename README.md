@@ -45,6 +45,8 @@ const dyn = new AWSUtils({
 
 `updateItem(params = {}, callback) ⇒ AWS.Request`
 
+`query(params = {}, callback) ⇒ AWS.Request`
+
 ## Testing
 
 > Make sure to launch DynamoDB locally.
