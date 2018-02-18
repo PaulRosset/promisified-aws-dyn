@@ -2,7 +2,7 @@
   "name": "promisified-aws-dyn",
   "version": "1.0.2",
   "description": "Abstract class promisified for AWS dynamodb SDK ",
-  "main": "./lib/Processing.js",
+  "main": "./lib/entry.js",
   "repository": "git@github.com:PaulRosset/promisified-aws-dyn.git",
   "author": "<paulrosset96@gmail.com>",
   "license": "MIT",

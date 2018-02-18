@@ -38,7 +38,7 @@ beforeAll(async done => {
     region: "eu-west-2",
     apiVersion: "2012-08-10"
   });
-  done()
+  done();
 });
 
 describe("Testing tables", () => {
@@ -124,15 +124,15 @@ var wantedUpdate = {
 };
 
 const paramsToQuery = {
-    ExpressionAttributeValues: {
-      ":v1": {
-        S: "John Doe"
-       }
-     }, 
-     KeyConditionExpression: "Artist = :v1", 
-     ProjectionExpression: "SongTitle", 
-     TableName: "Music"
-  }
+  ExpressionAttributeValues: {
+    ":v1": {
+      S: "John Doe"
+    }
+  },
+  KeyConditionExpression: "Artist = :v1",
+  ProjectionExpression: "SongTitle",
+  TableName: "Music"
+};
 
 describe("Add entry in Base", () => {
   beforeAll(async done => {
@@ -191,16 +191,15 @@ describe("Add entry in Base", () => {
     }
   });
 
-// Query the songTitle properties from the artist John Doe
+  // Query the songTitle properties from the artist John Doe
   test("Testing result returned form the methode query()", async done => {
     try {
       const resBefore = await dyn.query(paramsToQuery);
-      console.log(resBefore);
       expect(resBefore).toBeTruthy();
       expect(resBefore).toMatchSnapshot();
-      done()
-    } catch(e) {
-      if (e) throw e
+      done();
+    } catch (e) {
+      if (e) throw e;
     }
   });
 

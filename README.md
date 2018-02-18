@@ -31,6 +31,8 @@ const dyn = new AWSUtils({
 
 ## Methods encapsulated
 
+### Methods above are part of DynamoDB Class
+
 `createTable(params = {}, callback) ⇒ AWS.Request`
 
 `listTables(params = {}, callback) ⇒ AWS.Request`
@@ -46,6 +48,12 @@ const dyn = new AWSUtils({
 `updateItem(params = {}, callback) ⇒ AWS.Request`
 
 `query(params = {}, callback) ⇒ AWS.Request`
+
+### Methods above are from the DynamoDB.DocumentClient(), usefull when dealing with JSON object
+
+`put(params = {}, callback) ⇒ AWS.Request`
+
+`get(params = {}, callback) ⇒ AWS.Request`
 
 ## Testing
 
