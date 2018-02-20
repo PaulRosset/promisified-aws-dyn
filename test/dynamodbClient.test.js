@@ -30,14 +30,15 @@ beforeAll(async done => {
   done();
 });
 
-describe("Testing put method Client dynamoDb", () => {
+describe("Testing put method Client", () => {
   test("Testing add data through put method and Query Data after it", async done => {
     try {
       await dynClient.put({
         TableName: "Movies",
         Item: {
           year: 2016,
-          title: "Im a title"
+          title: "Im a title",
+          album: "Im a minion"
         }
       });
       const data = await dynClient.get({
@@ -49,7 +50,80 @@ describe("Testing put method Client dynamoDb", () => {
       });
       expect(data).toBeTruthy();
       expect(data.Item.title).toEqual("Im a title");
+      expect(data.Item.album).toEqual("Im a minion");
       expect(data.Item.year).toEqual(2016);
+      done();
+    } catch (e) {
+      if (e) throw e;
+    }
+  });
+});
+
+describe("Testing update method client", () => {
+  test("update(), method should return new entry freshly updated", async done => {
+    try {
+      const dataBefore = await dynClient.get({
+        TableName: "Movies",
+        Key: {
+          year: 2016,
+          title: "Im a title"
+        }
+      });
+      expect(dataBefore).toBeTruthy();
+      expect(dataBefore.Item.title).toEqual("Im a title");
+      expect(dataBefore.Item.album).toEqual("Im a minion");
+      expect(dataBefore.Item.year).toEqual(2016);
+      const dataUpdated = await dynClient.update({
+        TableName: "Movies",
+        Key: {
+          year: 2016,
+          title: "Im a title"
+        },
+        UpdateExpression: "set #album = :y",
+        ExpressionAttributeNames: { "#album": "album" },
+        ExpressionAttributeValues: {
+          ":y": "Im gruuu"
+        },
+        ReturnValues: "UPDATED_NEW"
+      });
+      expect(dataUpdated).toBeTruthy();
+      expect(dataUpdated.Attributes.album).toEqual("Im gruuu");
+      done();
+    } catch (e) {
+      if (e) throw e;
+    }
+  });
+});
+
+describe("Testing delete method Client", () => {
+  test("delete() method, should return empty", async done => {
+    try {
+      const dataBefore = await dynClient.get({
+        TableName: "Movies",
+        Key: {
+          year: 2016,
+          title: "Im a title"
+        }
+      });
+      expect(dataBefore).toBeTruthy();
+      expect(dataBefore.Item.title).toEqual("Im a title");
+      expect(dataBefore.Item.album).toEqual("Im gruuu");
+      expect(dataBefore.Item.year).toEqual(2016);
+      await dynClient.delete({
+        TableName: "Movies",
+        Key: {
+          year: 2016,
+          title: "Im a title"
+        }
+      });
+      const dataSupposeToBeDeleted = await dynClient.get({
+        TableName: "Movies",
+        Key: {
+          year: 2016,
+          title: "Im a title"
+        }
+      });
+      expect(dataSupposeToBeDeleted).toEqual({});
       done();
     } catch (e) {
       if (e) throw e;

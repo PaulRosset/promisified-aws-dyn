@@ -55,6 +55,10 @@ const dyn = new AWSUtils({
 
 `get(params = {}, callback) ⇒ AWS.Request`
 
+`update(params = {}, callback) ⇒ AWS.Request`
+
+`delete(params = {}, callback) ⇒ AWS.Request`
+
 ## Testing
 
 > Make sure to launch DynamoDB locally.
