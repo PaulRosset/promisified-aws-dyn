@@ -20,7 +20,7 @@ DynamoDB will be launch on `localhost:8000`.
 
 ```
 const AWSUtils = require("promisified-aws-dyn");
-const dyn = new AWSUtils({
+const dyn = new AWSUtils.ProcessingClient({
     endpoint: new AWS.Endpoint("http://localhost:8000"),
     accessKeyId: ACCESSKEYID,
     secretAccessKey: KEYSECRETAWS,
@@ -28,6 +28,8 @@ const dyn = new AWSUtils({
     apiVersion: "2012-08-10"
   });
 ```
+
+> Class `ProcessingClient()` extend `Processing()`, thus in client we have access to the standard library of DynamoDB method.
 
 ## Methods encapsulated
 
@@ -58,6 +60,10 @@ const dyn = new AWSUtils({
 `update(params = {}, callback) ⇒ AWS.Request`
 
 `delete(params = {}, callback) ⇒ AWS.Request`
+
+`scan(params = {}, callback) ⇒ AWS.Request`
+
+`query(params = {}, callback) ⇒ AWS.Request`
 
 ## Testing
 

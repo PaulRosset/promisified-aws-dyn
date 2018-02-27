@@ -95,6 +95,48 @@ describe("Testing update method client", () => {
   });
 });
 
+describe("Testing scan and query method Client", () => {
+  test("scan method, shoud return the information updated above", async done => {
+    try {
+      const data = await dynClient.scan({
+        TableName: "Movies",
+        ProjectionExpression: "title, album",
+        FilterExpression: "#a = :sa",
+        ExpressionAttributeNames: {
+          "#a": "album"
+        },
+        ExpressionAttributeValues: {
+          ":sa": "Im gruuu"
+        }
+      });
+      expect(data).toMatchSnapshot();
+      done();
+    } catch (e) {
+      if (e) throw e;
+    }
+  });
+
+  test("query method, should return the information updated above", async done => {
+    try {
+      const data = await dynClient.query({
+        TableName: "Movies",
+        ProjectionExpression: "title, #y, album",
+        KeyConditionExpression: "#y = :yyyy",
+        ExpressionAttributeNames: {
+          "#y": "year"
+        },
+        ExpressionAttributeValues: {
+          ":yyyy": 2016
+        }
+      });
+      expect(data).toMatchSnapshot();
+      done();
+    } catch (e) {
+      if (e) throw e;
+    }
+  });
+});
+
 describe("Testing delete method Client", () => {
   test("delete() method, should return empty", async done => {
     try {

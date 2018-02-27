@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing scan and query method Client query method, should return the information updated above 1`] = `
+Object {
+  "Count": 1,
+  "Items": Array [
+    Object {
+      "album": "Im gruuu",
+      "title": "Im a title",
+      "year": 2016,
+    },
+  ],
+  "ScannedCount": 1,
+}
+`;
+
+exports[`Testing scan and query method Client scan method, shoud return the information updated above 1`] = `
+Object {
+  "Count": 1,
+  "Items": Array [
+    Object {
+      "album": "Im gruuu",
+      "title": "Im a title",
+    },
+  ],
+  "ScannedCount": 1,
+}
+`;

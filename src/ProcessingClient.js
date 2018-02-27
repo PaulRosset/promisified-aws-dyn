@@ -36,6 +36,50 @@ class AWSUtilsClient extends AWSUtils {
       }
     );
   }
+
+  delete(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.AWSUtilsClient.delete(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  update(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.AWSUtilsClient.update(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  query(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.AWSUtilsClient.query(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
+
+  scan(params: Object): Promise<Object> {
+    return new Promise(
+      (resolve: (data: Object) => void, reject: (err: Object) => void) => {
+        this.AWSUtilsClient.scan(params, (err: Object, data: Object) => {
+          if (err) return reject(err);
+          return resolve(data);
+        });
+      }
+    );
+  }
 }
 
 module.exports = AWSUtilsClient;
